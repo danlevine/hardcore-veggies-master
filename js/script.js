@@ -1,11 +1,10 @@
 var app = new window.spredfast.Poller();
+
 var data = [];
 var displayData = [];
-
-window.setInterval(fetchCounts, 3000);
+var produceList = $('.produce-list');
 
 function fetchCounts() {
-  console.log('fetching counts');
   
   // Poll veggies
   app.poll().then(function(payload) {
@@ -21,13 +20,23 @@ function fetchCounts() {
 }
 
 function updateData(type, payload) {
-  console.log('data', data);
-  $('#dataF').text(JSON.stringify(data['f']));
-  $('#dataV').text(JSON.stringify(data['v']));
-  
-  displayData = [].concat(data['f'], data['v']).sort(function(x, y) { return y.count - x.count }).slice(0, 2);
-  $('#master').text(JSON.stringify(displayData));
 
+  // Merge and sort lists
+  displayData = [].concat(data['f'], data['v']).sort(function(x, y) { return y.count - x.count }).slice(0, 5);
 
- 
+  // Clear and repopulate produce list
+  produceList.empty();
+
+  $.each(displayData, function(item) {
+    var li = $('<li/>')
+      .html(displayData[item].name)
+      .addClass('produce-lst__item')
+      .appendTo(produceList);
+    $('<div/>')
+      .html("<strong>" + displayData[item].count + '</strong> mentions')
+      .appendTo(li);
+  });
 }
+
+fetchCounts();
+window.setInterval(fetchCounts, 15000);
