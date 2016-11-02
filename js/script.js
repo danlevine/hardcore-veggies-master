@@ -30,10 +30,10 @@ function updateData(type, payload) {
   $.each(displayData, function(item) {
     var li = $('<li/>')
       .html(displayData[item].name)
-      .addClass('produce-lst__item')
+      .addClass('produce-list__item')
       .appendTo(produceList);
     $('<div/>')
-      .html("<strong>" + displayData[item].count + '</strong> mentions')
+      .html("<strong>" + displayData[item].count + '</strong> <small>mentions</small>')
       .appendTo(li);
   });
 }

@@ -1,0 +1,99 @@
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url(../assets/bg.png);
+  font-family: 'Helvetica', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.produce-logo {
+  max-width: 638px;
+  width: 100%;
+}
+
+.produce-logo img {
+  width: 100%;
+}
+
+.produce-list {
+  width: 100%;
+  max-width: 400px;
+  border: 5px solid #d0cfcf;
+  border-radius: 10px;
+  list-style: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 0;
+  margin: 0 15px;
+  margin: auto;
+  background-color: rgba(29, 29, 29, .9);
+  -webkit-animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  -ms-animation: fadein 3s;
+  -o-animation: fadein 3s;
+  animation: fadein 3s;
+}
+
+.produce-list__item {
+  padding: 15px;
+  border-bottom: 1px solid #3f3f3f;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+  .produce-list__item {
+    flex-direction: column;
+  }
+}
+
+.produce-list__item:last-of-type {
+  border-bottom: none;
+}
+
+.produce-list__item div small {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.produce-list__item div strong {
+  color: #9e0b0f;
+}
+
+// Fade in animation
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
